@@ -31,10 +31,10 @@ Flash layout (confirmed from a full 64 KB dump):
 
 | Range | Pages | Contents |
 |---|---|---|
-| `0x08000000`-`0x08003363` | 0-12 | Bootloader (DFU / app launcher) |
-| `0x08003364`-`0x08003FFF` | 12-15 | Blank (`0xFF`) |
+| `0x08000000`-`0x08003363` | 0-12 | Bootloader (DFU / app launcher). Page 12 is only partly used. |
+| `0x08003364`-`0x08003FFF` | 12-15 | Blank (`0xFF`). Shares page 12 with the bootloader tail. |
 | `0x08004000`-`0x0800BFFF` | **16-47** | **Application firmware (32 KB). This is what you back up and flash.** |
-| `0x0800C000`-`0x0800FFFF` | 48-63 | Blank (`0xFF`) |
+| `0x0800C000`-`0x0800FFFF` | 48-63 | Blank (`0xFF`). |
 
 The 32 KB `.bin` files are the **application only**, built to run at `0x08004000`. Always flash them at `0x08004000`.
 
